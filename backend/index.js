@@ -1,5 +1,5 @@
 const ServerClass = require('./server')
-const server = new ServerClass(6969).start()
+const server = new ServerClass(80).start()
 
 function readPath(path) {
     return require('fs').readFileSync(require('path').join(__dirname, `./frontend/paths/${path}`)).toString('utf-8')
