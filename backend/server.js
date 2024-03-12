@@ -1,9 +1,5 @@
-const { EventEmitter } = require('events')
-
-module.exports = class HttpWebServer extends EventEmitter {
+module.exports = class HttpWebServer {
     constructor(port) {
-        super()
-
         this.port = port || 80
         this._server = null
     }
