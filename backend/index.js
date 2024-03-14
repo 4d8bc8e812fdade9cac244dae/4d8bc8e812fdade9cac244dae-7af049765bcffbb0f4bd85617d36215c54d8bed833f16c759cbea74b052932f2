@@ -25,6 +25,10 @@ const assets = [
     {
         pathName: '1984',
         pathFile: readPath('./assets/1984.gif')
+    },
+    {
+        pathName: 'cumdump',
+        pathFile: readPath('./assets/cumdump.txt')
     }
 ]
 
