@@ -23,8 +23,8 @@ const assets = [
         pathFile: readPath('./assets/favicon.ico')
     },
     {
-        pathName: '1984',
-        pathFile: readPath('./assets/1984.gif')
+        pathName: 'style.css',
+        pathFile: readPath('./assets/style.css')
     },
     {
         pathName: 'cumdump',
