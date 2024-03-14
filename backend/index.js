@@ -21,6 +21,10 @@ const assets = [
     {
         pathName: 'favicon.ico',
         pathFile: readPath('./assets/favicon.ico')
+    },
+    {
+        pathName: '1984',
+        pathFile: readPath('./assets/1984.gif')
     }
 ]
 
