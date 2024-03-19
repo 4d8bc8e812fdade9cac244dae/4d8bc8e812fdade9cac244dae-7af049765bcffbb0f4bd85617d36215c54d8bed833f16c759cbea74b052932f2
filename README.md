@@ -1,1 +1,1 @@
-# The website on https://yfd.icu
+# The website on http://yfd.icu
