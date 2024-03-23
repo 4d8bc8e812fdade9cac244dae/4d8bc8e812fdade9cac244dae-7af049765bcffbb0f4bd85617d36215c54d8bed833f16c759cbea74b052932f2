@@ -19,17 +19,9 @@ const pathMap = [
 
 const assets = [
     {
-        pathName: 'favicon.ico',
-        pathFile: readPath('./assets/favicon.ico')
-    },
-    {
         pathName: 'style.css',
         pathFile: readPath('./assets/style.css')
     },
-    {
-        pathName: 'cumdump',
-        pathFile: readPath('./assets/cumdump.txt')
-    }
 ]
 
 server.on('request', (req, res) => {
