@@ -7,7 +7,7 @@ function readPath(path) {
 const config = {
     assetsPath: '/assets/',
     exampleFilePath: 'frontend/systemPaths/example/',
-    examplePath: '/example/',
+    examplePath: '/debug/',
     notFound: readPath('frontend/systemPaths/notfound/index.html'),
     port: 80
 }
