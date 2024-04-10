@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/style.css">
+        <title>Domain search</title>
+    </head>
+    <body>
+        <form id="search">
+            <label for="domain">Enter domain</label>
+            <input type="text" id="domain" name="domain"></input>
+            <button type="submit">Search</button>
+        </form>
+        <script>
+            document.getElementById('search').addEventListener('submit', (ev) => {
+                ev.preventDefault()
+                const domain = document.getElementById('domain').value
+                fetch('/domain', {
+                    method: 'POST',
+                    body: domain
+                }).then(response => {
+                    response.text().then(text => {
+                    if (!response.ok) {
+                        return {
+                            status: 'ERROR',
+                            data: text
+                        }
+                    } else return {
+                        status: 'SUCCESS',
+                        data: text
+                    }
+                    }).then(location => {
+                        if (location.status === 'SUCCESS') window.location.href = location.data
+                        else alert(location.data)
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>

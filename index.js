@@ -12,9 +12,28 @@ function readPath(path) {
 
 const pathMap = [
     {
-        pathName: '/',
-        pathFile: readPath('./frontend/paths/main/index.html')
-    }
+        pathName: '',
+        pathFile: readPath('./frontend/paths/main/index.html'),
+        runAsJavascript: false,
+        allowedTypes: ['GET']
+    },
+    {
+        pathName: '/dns',
+        pathFile: readPath('./frontend/paths/domains/index.html'),
+        runAsJavascript: false,
+        allowedTypes: ['GET']
+    },
+    {
+        pathName: '/domain',
+        pathFile: readPath('./frontend/paths/domains/index.js'),
+        runAsJavascript: true,
+        allowedTypes: ['POST']
+    },
+    {
+        pathName: '/robots.txt',
+        pathFile: readPath('./assets/robots.txt'),
+        runAsJavascript: false,
+    },
 ]
 
 const assets = [
@@ -22,10 +41,16 @@ const assets = [
         pathName: 'style.css',
         pathFile: readPath('./assets/style.css')
     },
+    {
+        pathName: 'domains',
+        pathFile: readPath('domains.json')
+    },
 ]
 
 server.on('request', (req, res) => {
-    const path = req.url || '/'
+    if (!req.method) req.method = 'GET'
+    let path = req.url || ''
+    if (path.endsWith('/')) path = path.slice(0, -1)
 
     if (path.startsWith(config.assetsPath)) {
         const requestedFilePath = path.substring(config.assetsPath.length)
@@ -47,10 +72,32 @@ server.on('request', (req, res) => {
     const foundPath = pathMap.find(pathData => pathData.pathName === path)
 
     if (foundPath) {
-        res.write(foundPath.pathFile)
+        if (foundPath.allowedTypes) {
+            const allowed = foundPath.allowedTypes.findIndex(type => type === req.method)
+            if (allowed === -1) {
+                res.statusCode = 400
+                res.write(`Invalid request method: ${req.method} expected ${foundPath.allowedTypes.join(' ')}`)
+                res.end()
+                return
+            }
+        }
+        if (foundPath.runAsJavascript) {
+            try {
+                eval(foundPath.pathFile.toString())(req, res)
+            } catch (e) {
+                res.statusCode = 500
+                res.write(`500 Internal server error: ${e.message ? e.message : 'Unknown error'}`)
+                res.end()
+            }
+            return
+        } else {
+            res.write(foundPath.pathFile)
+            res.end()
+            return
+        }
     } else {
-        res.write(pathMap[0].pathFile)
+        res.statusCode = 404
+        res.write(`Could not find ${path}`)
+        res.end()
     }
-
-    res.end()
 })

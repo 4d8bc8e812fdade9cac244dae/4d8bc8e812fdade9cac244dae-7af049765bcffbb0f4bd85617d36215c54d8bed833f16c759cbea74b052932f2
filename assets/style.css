@@ -1,9 +1,42 @@
-body {
+* {
     background-color: #101010;
     color: white;
     font-family: sans-serif
 }
 
-p {
-    color: #dadada
+#search {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+    text-align: center
+}
+
+label {
+    display: block;
+    margin-bottom: 10px
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px
+}
+
+button:hover {
+    background-color: #0056b3
 }
