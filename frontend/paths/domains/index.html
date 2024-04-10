@@ -7,11 +7,13 @@
         <title>Domain search</title>
     </head>
     <body>
-        <form id="search">
-            <label for="domain">Enter domain</label>
-            <input type="text" id="domain" name="domain"></input>
-            <button type="submit">Search</button>
-        </form>
+        <div style="text-align: center; font-size: 20px; padding-top: 50px; padding-bottom: 50px;">
+            <form id="search">
+                <label for="domain">Enter domain</label><br>
+                <input type="text" id="domain" name="domain"><br>
+                <button type="submit">Search</button>
+            </form>
+        </div>
         <script>
             document.getElementById('search').addEventListener('submit', (ev) => {
                 ev.preventDefault()
