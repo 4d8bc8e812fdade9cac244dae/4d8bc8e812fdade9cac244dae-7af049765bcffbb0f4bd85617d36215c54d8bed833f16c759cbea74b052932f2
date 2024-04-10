@@ -1,14 +1,19 @@
+const fs = require('fs')
+
+function readPath(path) {
+    return fs.readFileSync(require('path').join(__dirname, path))
+}
+
 const config = {
     assetsPath: '/assets/',
-    port: 80
+    exampleFilePath: 'frontend/systemPaths/example/',
+    examplePath: '/example/',
+    notFound: readPath('frontend/systemPaths/notfound/index.html'),
+    port: 8000
 }
 
 const ServerClass = require('./server')
 const server = new ServerClass(config.port).start()
-
-function readPath(path) {
-    return require('fs').readFileSync(require('path').join(__dirname, path))
-}
 
 const pathMap = [
     {
@@ -47,6 +52,15 @@ const assets = [
     },
 ]
 
+const example = []
+
+fs.readdirSync(config.exampleFilePath).forEach(dir => {
+    example.push({
+        pathName: dir,
+        pathFile: readPath(`${config.exampleFilePath}/${dir}`)
+    })
+})
+
 server.on('request', (req, res) => {
     if (!req.method) req.method = 'GET'
     let path = req.url || ''
@@ -62,7 +76,24 @@ server.on('request', (req, res) => {
             res.end()
         } else {
             res.statusCode = 404
-            res.write('404 - Not found')
+            res.write(config.notFound)
+            res.end()
+        }
+
+        return
+    }
+
+    if (path.startsWith(config.examplePath)) {
+        const requestedFilePath = path.substring(config.examplePath.length)
+
+        const requestedFile = example.find(example => example.pathName === requestedFilePath)
+
+        if (requestedFile) {
+            res.write(requestedFile.pathFile)
+            res.end()
+        } else {
+            res.statusCode = 404
+            res.write(config.notFound)
             res.end()
         }
 
@@ -97,7 +128,7 @@ server.on('request', (req, res) => {
         }
     } else {
         res.statusCode = 404
-        res.write(`Could not find ${path}`)
+        res.write(config.notFound)
         res.end()
     }
 })
