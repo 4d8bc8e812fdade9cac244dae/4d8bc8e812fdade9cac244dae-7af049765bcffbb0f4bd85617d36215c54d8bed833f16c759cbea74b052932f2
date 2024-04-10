@@ -9,7 +9,7 @@ const config = {
     exampleFilePath: 'frontend/systemPaths/example/',
     examplePath: '/example/',
     notFound: readPath('frontend/systemPaths/notfound/index.html'),
-    port: 8000
+    port: 80
 }
 
 const ServerClass = require('./server')
