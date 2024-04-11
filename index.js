@@ -39,11 +39,6 @@ const pathMap = [
         pathFile: readPath('./assets/robots.txt'),
         runAsJavascript: false,
     },
-    {
-        pathName: '/favicon.ico',
-        pathFile: readPath('./assets/favicon.ico'),
-        runAsJavascript: false,
-    },
 ]
 
 const assets = [
