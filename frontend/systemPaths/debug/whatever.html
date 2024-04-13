@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>idk</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <h1 id="test">aaaaaaa</h1>
-    </body>
+    <body></body>
     <script>
-        window.open('https://sus.red')
+        setInterval(() => {
+            const video = document.createElement('video')
+            video.setAttribute('autoplay', '')
+            video.setAttribute('loop', '')
+            video.setAttribute('muted', '')
+            const source = document.createElement('source')
+            source.setAttribute('src', '/assets/rickroll.mp4')
+            video.appendChild(source)
+            document.body.appendChild(element)
+        }, 0)
     </script>
 </html>

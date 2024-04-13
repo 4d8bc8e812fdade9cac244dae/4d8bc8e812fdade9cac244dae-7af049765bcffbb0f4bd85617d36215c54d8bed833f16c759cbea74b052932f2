@@ -50,6 +50,10 @@ const assets = [
         pathName: 'domains',
         pathFile: readPath('domains.json')
     },
+    {
+        pathName: 'rickroll.mp4',
+        pathFile: readPath('./assets/rickroll.mp4')
+    },
 ]
 
 const example = []
@@ -72,6 +76,7 @@ server.on('request', (req, res) => {
         const requestedFile = assets.find(asset => asset.pathName === requestedFilePath)
 
         if (requestedFile) {
+            res.statusCode = 200
             res.write(requestedFile.pathFile)
             res.end()
         } else {
@@ -89,6 +94,7 @@ server.on('request', (req, res) => {
         const requestedFile = example.find(example => example.pathName === requestedFilePath)
 
         if (requestedFile) {
+            res.statusCode = 200
             res.write(requestedFile.pathFile)
             res.end()
         } else {
@@ -122,6 +128,7 @@ server.on('request', (req, res) => {
             }
             return
         } else {
+            res.statusCode = 200
             res.write(foundPath.pathFile)
             res.end()
             return
