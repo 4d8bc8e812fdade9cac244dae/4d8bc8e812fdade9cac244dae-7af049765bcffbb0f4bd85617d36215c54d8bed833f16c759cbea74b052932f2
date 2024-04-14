@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>EasyMC Account scraper</title>
+        <meta content="EasyMC token scraper" property="og:title">
+        <meta content="EasyMC scraper, finds tokens" property="og:description">
+        <meta name="description" content="EasyMC token scraper">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/style.css">
+    </head>
+    <body>
+        <div id="error" style="display: none">
+            <h1>Error: EasyMC is blocking our requests, go to <a id="link" target="_blank" href="https://easymc.io/get?new">https://easymc.io/get?new</a> and generate a new account to fix it</h1>
+        </div>
+        <h1>Accounts found:</h1>
+        <ul id="accounts"></ul>
+        <h1>Raw tokens:</h1>
+        <ul id="rawAccounts"></ul>
+    </body>
+    <script>
+        let accounts = []
+
+        function updateExpirationTimes() {
+            const currentTime = new Date()
+            accounts.forEach(data => {
+                const accountElement = document.getElementById(`account-${data.mcName}`)
+                if (accountElement) {
+                    const timeDiff = Math.ceil((data.expires - currentTime) / 1000)
+                    const minutesUntilExpiration = Math.floor(timeDiff / 60)
+                    const secondsUntilExpiration = timeDiff % 60
+                    if (timeDiff <= 0) {
+                        accountElement.textContent = `${data.token} \u203a ${data.mcName} - Expired`
+                    }
+                    else {
+                        accountElement.textContent = `${data.token} \u203a ${data.mcName} - Expires in ${minutesUntilExpiration} minutes and ${secondsUntilExpiration} seconds`
+                    }
+                }
+            })
+        }
+
+        function getNew() {
+            fetch('https://api.easymc.io/v1/token?new=true')
+            .then(response => response.json())
+            .then(data => {
+                if (JSON.stringify(data) === '{}') {
+                    document.getElementById('error').style.display = 'block'
+                } else {
+                    document.getElementById('error').style.display = 'none'
+                }
+                if (data && data.token && data.mcName && data.expires && data.renewIn) {
+                    if (!accounts.find(account => account.mcName === data.mcName)) {
+                        accounts.push(data)
+                        updateLists(data)
+                    }
+                }
+            })
+        }
+
+        function updateLists(data) {
+            const account = document.createElement('li')
+            account.setAttribute('id', `account-${data.mcName}`)
+            const timeDiff = Math.ceil((data.expires - new Date()) / 1000)
+            const minutesUntilExpiration = Math.floor(timeDiff / 60)
+            const secondsUntilExpiration = timeDiff % 60
+            account.textContent = `${data.token} \u203a ${data.mcName} - Expires in ${minutesUntilExpiration} minutes and ${secondsUntilExpiration} seconds`
+            document.getElementById('accounts').appendChild(account)
+
+            const rawAccount = document.createElement('li')
+            rawAccount.textContent = data.token
+            document.getElementById('rawAccounts').appendChild(rawAccount)
+        }
+
+        getNew()
+        setInterval(getNew, 10000)
+        setInterval(updateExpirationTimes, 1000)
+    </script>
+</html>

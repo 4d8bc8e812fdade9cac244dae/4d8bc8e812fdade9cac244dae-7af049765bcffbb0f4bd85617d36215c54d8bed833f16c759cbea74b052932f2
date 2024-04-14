@@ -39,6 +39,11 @@ const pathMap = [
         pathFile: readPath('./assets/robots.txt'),
         runAsJavascript: false,
     },
+    {
+        pathName: '/easymc/tokens',
+        pathFile: readPath('./frontend/paths/easymc/scraper.html'),
+        runAsJavascript: false,
+    },
 ]
 
 const assets = [
