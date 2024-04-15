@@ -4,8 +4,8 @@
 
     try {
         platform = JSON.parse(req.headers['sec-ch-ua-platform'])
-    } catch {
-        platform = null
+    } catch (e) {
+        platform = e.message
     }
 
     res.statusCode = 200
