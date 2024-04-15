@@ -47,7 +47,7 @@
         .then(response => {
             const element = document.getElementById('ipAddress')
             if (response.ipAddress) {
-                element.textContent = `Your IP address is ${response.ipAddress}`
+                element.textContent = `Fun fact: your IP address is ${response.ipAddress}`
             } else {
                 element.textContent = 'Unable to resolve IP address'
             }
