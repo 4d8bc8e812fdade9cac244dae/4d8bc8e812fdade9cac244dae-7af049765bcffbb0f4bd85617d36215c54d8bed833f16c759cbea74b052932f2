@@ -20,7 +20,7 @@
             {
                 ipAddress: ipAddress || null,
                 platform: platform,
-                headers: JSON.stringify(req.headers)
+                headers: req.headers
             }
         ))
     } catch {
