@@ -42,11 +42,10 @@
         function getNew() {
             fetch('https://api.easymc.io/v1/token?new=true')
             .then(response => {
-                if (!response.ok) return
+                if (!response.ok) return {}
                 else return response.json()
             })
             .then(data => {
-                if (!data) return
                 if (JSON.stringify(data) === '{}') {
                     document.getElementById('error').style.display = 'block'
                 } else {
