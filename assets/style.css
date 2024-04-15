@@ -41,3 +41,17 @@ button {
 button:hover {
     background-color: #0056b3
 }
+
+::-webkit-scrollbar {
+    width: 6px
+}
+
+::-webkit-scrollbar-track {
+    background: #242424;
+    border-radius: 3px
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999999;
+    border-radius: 3px
+}
