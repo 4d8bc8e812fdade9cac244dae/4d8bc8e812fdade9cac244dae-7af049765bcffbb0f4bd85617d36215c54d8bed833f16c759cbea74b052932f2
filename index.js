@@ -44,6 +44,11 @@ const pathMap = [
         pathFile: readPath('./frontend/paths/easymc/scraper.html'),
         runAsJavascript: false,
     },
+    {
+        pathName: '/info',
+        pathFile: readPath('./frontend/scripts/info.js'),
+        runAsJavascript: true
+    },
 ]
 
 const assets = [
