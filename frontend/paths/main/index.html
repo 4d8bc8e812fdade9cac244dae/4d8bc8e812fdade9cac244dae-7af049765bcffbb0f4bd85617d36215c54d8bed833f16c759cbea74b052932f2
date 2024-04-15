@@ -38,5 +38,19 @@
             <li>NekoChat (soon)</li>
             <li><a href="/easymc/tokens">EasyMC token scraper</a></li>
         </ul>
+
+        <h6 id="ipAddress">Loading...</h6>
     </body>
+    <script>
+        fetch('/info')
+        .then(response => response.json())
+        .then(response => {
+            const element = document.getElementById('ipAddress')
+            if (response.ipAddress) {
+                element.textContent = `Your IP address is ${response.ipAddress}`
+            } else {
+                element.textContent = 'Unable to resolve IP address'
+            }
+        })
+    </script>
 </html>
