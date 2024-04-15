@@ -1,11 +1,11 @@
 (req, res) => {
-    let platform = null
+    let platform
     const toBlock = '::ffff:'
 
     try {
         platform = JSON.parse(req.headers['sec-ch-ua-platform'])
     } catch (e) {
-        platform = e.message
+        platform = undefined
     }
 
     res.statusCode = 200
