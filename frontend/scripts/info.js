@@ -19,7 +19,8 @@
         res.write(JSON.stringify(
             {
                 ipAddress: ipAddress || null,
-                platform: platform
+                platform: platform,
+                headers: JSON.stringify(req.headers)
             }
         ))
     } catch {
