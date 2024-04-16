@@ -17,7 +17,7 @@ const server = new ServerClass(config.port)
 server.startHttp()
 server.startHttps(
     fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/privkey.pem'),
-    fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullkeychain.pem')
+    fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullchain.pem')
 )
 
 const pathMap = [
