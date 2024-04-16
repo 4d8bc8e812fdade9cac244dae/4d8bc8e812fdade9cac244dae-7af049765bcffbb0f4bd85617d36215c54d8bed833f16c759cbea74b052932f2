@@ -29,6 +29,10 @@ module.exports = class HttpWebServer extends EventEmitter {
         )
         this._httpsserver.listen(this.port || 443)
 
+        this._httpsserver.on('request', (req, res) => {
+            this.emit('request', req, res)
+        })
+
         return this._httpsserver
     }
 }
