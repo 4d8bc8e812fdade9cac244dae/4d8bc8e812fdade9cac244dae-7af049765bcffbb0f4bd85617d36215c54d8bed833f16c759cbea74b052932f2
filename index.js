@@ -64,6 +64,10 @@ const assets = [
         pathName: 'rickroll.mp4',
         pathFile: readPath('./assets/rickroll.mp4')
     },
+    {
+        pathName: 'bomb.mid',
+        pathFile: readPath('./assets/bomb.mid')
+    },
 ]
 
 const example = []
