@@ -9,11 +9,16 @@ const config = {
     exampleFilePath: 'frontend/systemPaths/debug/',
     examplePath: '/debug/',
     notFound: readPath('frontend/systemPaths/notfound/index.html'),
-    port: 80
+    port: null
 }
 
 const ServerClass = require('./server')
-const server = new ServerClass(config.port).start()
+const server = new ServerClass(config.port)
+server.startHttp()
+server.startHttps(
+    fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/privkey.pem'),
+    fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullkeychain.pem')
+)
 
 const pathMap = [
     {
