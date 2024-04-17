@@ -18,9 +18,8 @@
 
         res.write(JSON.stringify(
             {
-                ipAddress: ipAddress || null,
-                platform: platform,
-                headers: req.headers
+                ipAddress: req.headers['x-forwarded-for'] || ipAddress || null,
+                platform: platform
             }
         ))
     } catch {
