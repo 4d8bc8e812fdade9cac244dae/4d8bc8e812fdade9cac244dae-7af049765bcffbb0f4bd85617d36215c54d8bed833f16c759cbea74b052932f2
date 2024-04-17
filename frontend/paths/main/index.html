@@ -48,22 +48,5 @@
         </ul>
 
         <h3><a href="https://github.com/nekoisadev/website">Source code here</a></h3>
-
-        <h3 id="ipAddress"></h3>
     </body>
-    <script>
-        const element = document.getElementById('ipAddress')
-        fetch('/info')
-        .then(response => response.json())
-        .then(response => {
-            if (response.ipAddress) {
-                element.textContent = `Fun fact: your IP address is ${response.ipAddress}`
-            } else {
-                element.textContent = ''
-            }
-        })
-        .catch(error => {
-            element.textContent = ''
-        })
-    </script>
 </html>
