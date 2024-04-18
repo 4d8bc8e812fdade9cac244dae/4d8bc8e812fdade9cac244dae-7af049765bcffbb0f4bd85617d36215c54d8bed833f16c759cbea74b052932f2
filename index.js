@@ -57,7 +57,7 @@ const pathMap = [
     {
         pathName: '/countries',
         pathFile: readPath('./frontend/paths/countries/index.html'),
-        runAsJavascript: true
+        runAsJavascript: false
     },
 ]
 
