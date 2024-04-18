@@ -54,6 +54,11 @@ const pathMap = [
         pathFile: readPath('./frontend/scripts/info.js'),
         runAsJavascript: true
     },
+    {
+        pathName: '/countries',
+        pathFile: readPath('./frontend/paths/countries/index.html'),
+        runAsJavascript: true
+    },
 ]
 
 const assets = [
@@ -72,6 +77,10 @@ const assets = [
     {
         pathName: 'bomb.mid',
         pathFile: readPath('./assets/bomb.mid')
+    },
+    {
+        pathName: 'countries.json',
+        pathFile: readPath('./assets/countries.json')
     },
 ]
 

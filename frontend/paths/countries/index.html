@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>A-Z countries</title>
+    <meta content="A-Z countries" property="og:title">
+    <meta content="A-Z countries list" property="og:description">
+    <meta name="description" content="A-Z countries list">
+    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div id="alphabetical-list"></div>
+
+    <script>
+        const element = document.getElementById('alphabetical-list')
+        fetch('/assets/countries.json')
+        .then(response => response.json())
+        .then(response => {
+            const sortedCountries = response.sort((a, b) => a.name.localeCompare(b.name))
+            let currentLetter = null
+
+            sortedCountries.forEach(country => {
+                const firstLetter = country.name.charAt(0).toUpperCase()
+                
+                if (firstLetter !== currentLetter) {
+                    currentLetter = firstLetter
+                    const header = document.createElement('h2')
+                    header.textContent = currentLetter
+                    element.appendChild(header)
+
+                    const ul = document.createElement('ul')
+                    element.appendChild(ul)
+                }
+
+                const ul = element.querySelector('ul:last-of-type')
+                const line = document.createElement('li')
+                line.textContent = `${country.emoji} ${country.name}`
+                ul.appendChild(line)
+            })
+        })
+    </script>
+</body>
+</html>
