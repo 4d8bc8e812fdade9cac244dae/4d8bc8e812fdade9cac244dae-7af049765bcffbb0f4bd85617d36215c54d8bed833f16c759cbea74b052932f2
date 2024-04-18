@@ -18,9 +18,9 @@
 
         res.write(JSON.stringify(
             {
-                ipAddress: req.headers['cf-connecting-ip'] || ipAddress || null,
-                platform: platform,
-                country: req.headers['cf-ipcountry'] || null
+                ipAddress: req.headers['cf-connecting-ip'] || ipAddress || undefined,
+                platform: platform || undefined,
+                country: req.headers['cf-ipcountry'] || undefined
             }
         ))
     } catch {
