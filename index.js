@@ -25,13 +25,11 @@ const pathMap = [
         pathName: '',
         pathFile: readPath('./frontend/paths/main/index.html'),
         runAsJavascript: false,
-        allowedTypes: ['GET']
     },
     {
         pathName: '/dns',
         pathFile: readPath('./frontend/paths/domains/index.html'),
         runAsJavascript: false,
-        allowedTypes: ['GET']
     },
     {
         pathName: '/domain',
