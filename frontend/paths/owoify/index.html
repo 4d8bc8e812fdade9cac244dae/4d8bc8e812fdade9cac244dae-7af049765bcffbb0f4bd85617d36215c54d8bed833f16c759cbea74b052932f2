@@ -36,6 +36,17 @@
             function convert() {
                 const inputText = inputElement.value
                 const convertedText = inputText
+                    
+    
+                outputElement.value = convertedText
+            }
+    
+            function copyOutput() {
+                navigator.clipboard.writeText(outputElement.value.replace(/\<br\>/g, '\n'))
+            }
+
+            function parse(text) {
+                return text
                     .replace(/\b([Hh])i\b/g, `$1i${Math.random() < 0.5 ? '' : 'i'}~~`)
                     .replace(/(?:r(?! )|l(?!i))/g, 'w')
                     .replace(/(?:R|L(?!i))/g, 'W')
@@ -52,7 +63,7 @@
                     .replace(/ww/g, 'www')
                     .replace(/er\b/, 'wer')
                     .replace(/(?<!w)ent\b/g, 'went')
-                    .replace(/bettew/g, 'kawaii')
+                    .replace(/bettwer/g, 'kawaii')
                     .replace(/pwease/g, 'senpai')
                     .replace(/Hewwwo/g, 'Konnichiwa')
                     .replace(/hewwwo/g, 'konnichiwa')
@@ -61,12 +72,6 @@
                         return match.endsWith(' ') ? ` ${randomFace} ` : ` ${randomFace}`
                     })
                     .replace(/\\n/g, '<br>')
-    
-                outputElement.value = convertedText
-            }
-    
-            function copyOutput() {
-                navigator.clipboard.writeText(outputElement.value.replace(/\<br\>/g, '\n'))
             }
         </script>
     </body>
