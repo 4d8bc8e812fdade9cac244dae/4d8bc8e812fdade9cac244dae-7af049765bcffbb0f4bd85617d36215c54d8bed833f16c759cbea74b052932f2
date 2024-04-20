@@ -80,6 +80,10 @@ const assets = [
         pathName: 'countries.json',
         pathFile: readPath('./assets/countries.json')
     },
+    {
+        pathName: 'bomb.zip',
+        pathFile: readPath('./assets/bomb.zip')
+    },
 ]
 
 const example = []
