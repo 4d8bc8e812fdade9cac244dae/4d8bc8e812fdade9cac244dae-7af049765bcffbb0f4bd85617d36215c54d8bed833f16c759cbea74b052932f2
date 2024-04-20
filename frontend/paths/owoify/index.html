@@ -36,12 +36,22 @@
             function convert() {
                 const inputText = inputElement.value
                 const convertedText = inputText
-                    .replace(/(?:r|l)/g, 'w')
+                    .replace(/\b([Hh])i\b/g, '$1i~~')
+                    .replace(/(?:r(?! )|l)/g, 'w')
                     .replace(/(?:R|L)/g, 'W')
                     .replace(/n([aeiou])/g, 'ny$1')
                     .replace(/N([aeiou])/g, 'Ny$1')
                     .replace(/N([AEIOU])/g, 'Ny$1')
                     .replace(/ove/g, 'uv')
+                    .replace(/wm/g, 'wrm')
+                    .replace(/cus/g, 'cuws')
+                    .replace(/cod/g, 'cowd')
+                    .replace(/so/g, 'swo')
+                    .replace(/tom/g, 'towm')
+                    .replace(/con/g, 'cown')
+                    .replace(/ww/g, 'www')
+                    .replace(/er\b/, 'wer')
+                    .replace(/(?<!w)ent\b/g, 'went')
                     .replace(/[.?!]+/g, (match) => {
                         const randomFace = faces[Math.floor(Math.random() * faces.length)]
                         return match.endsWith(' ') ? ` ${randomFace} ` : ` ${randomFace}`
