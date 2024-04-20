@@ -36,7 +36,7 @@
             function convert() {
                 const inputText = inputElement.value
                 const convertedText = inputText
-                    .replace(/\b([Hh])i\b/g, '$1i~~')
+                    .replace(/\b([Hh])i\b/g, `$1i${Math.random() < 0.5 ? '' : 'i'}~~`)
                     .replace(/(?:r(?! )|l)/g, 'w')
                     .replace(/(?:R|L)/g, 'W')
                     .replace(/n([aeiou])/g, 'ny$1')
@@ -52,6 +52,8 @@
                     .replace(/ww/g, 'www')
                     .replace(/er\b/, 'wer')
                     .replace(/(?<!w)ent\b/g, 'went')
+                    .replace(/bettew/g, 'kawaii')
+                    .replace(/pwease/g, 'senpai')
                     .replace(/[.?!]+/g, (match) => {
                         const randomFace = faces[Math.floor(Math.random() * faces.length)]
                         return match.endsWith(' ') ? ` ${randomFace} ` : ` ${randomFace}`
