@@ -37,8 +37,8 @@
                 const inputText = inputElement.value
                 const convertedText = inputText
                     .replace(/\b([Hh])i\b/g, `$1i${Math.random() < 0.5 ? '' : 'i'}~~`)
-                    .replace(/(?:r(?! )|l)/g, 'w')
-                    .replace(/(?:R|L)/g, 'W')
+                    .replace(/(?:r(?! )|l(?!i))/g, 'w')
+                    .replace(/(?:R|L(?!i))/g, 'W')
                     .replace(/n([aeiou])/g, 'ny$1')
                     .replace(/N([aeiou])/g, 'Ny$1')
                     .replace(/N([AEIOU])/g, 'Ny$1')
