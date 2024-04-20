@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>OwOify</title>
+        <meta content="OwOify" property="og:title">
+        <meta content="Neko's OwOify!" property="og:description">
+        <meta name="description" content="Neko's OwOify!">
+        <meta name="robots" content="index, follow">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/style.css">
+    </head>
+    <body>
+        <h1>OwOify text!</h1>
+    
+        <textarea id="input" rows="8" oninput="convert()"></textarea>
+    
+        <h1>Output</h1>
+
+        <textarea id="output" rows="8" readonly></textarea>
+
+        <button onclick="copyOutput()">Copy</button>
+    
+        <script>
+            const inputElement = document.getElementById('input')
+            const outputElement = document.getElementById('output')
+            const faces = [
+                'OwO',
+                'owo',
+                'UwU',
+                'uwu',
+                '>w<',
+                ':3'
+            ]
+    
+            function convert() {
+                const inputText = inputElement.value
+                const convertedText = inputText
+                    .replace(/(?:r|l)/g, 'w')
+                    .replace(/(?:R|L)/g, 'W')
+                    .replace(/n([aeiou])/g, 'ny$1')
+                    .replace(/N([aeiou])/g, 'Ny$1')
+                    .replace(/N([AEIOU])/g, 'Ny$1')
+                    .replace(/ove/g, 'uv')
+                    .replace(/[.?!]+/g, (match) => {
+                        const randomFace = faces[Math.floor(Math.random() * faces.length)]
+                        return match.endsWith(' ') ? ` ${randomFace} ` : ` ${randomFace}`
+                    })
+                    .replace(/\\n/g, '<br>')
+    
+                outputElement.value = convertedText
+            }
+    
+            function copyOutput() {
+                navigator.clipboard.writeText(outputElement.value.replace(/\<br\>/g, '\n'))
+            }
+        </script>
+    </body>
+</html>

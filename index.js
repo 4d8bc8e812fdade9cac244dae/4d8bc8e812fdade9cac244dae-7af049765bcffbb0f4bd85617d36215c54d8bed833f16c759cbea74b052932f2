@@ -57,6 +57,11 @@ const pathMap = [
         pathFile: readPath('./frontend/paths/countries/index.html'),
         runAsJavascript: false
     },
+    {
+        pathName: '/owoify',
+        pathFile: readPath('./frontend/paths/owoify/index.html'),
+        runAsJavascript: false
+    },
 ]
 
 const assets = [
