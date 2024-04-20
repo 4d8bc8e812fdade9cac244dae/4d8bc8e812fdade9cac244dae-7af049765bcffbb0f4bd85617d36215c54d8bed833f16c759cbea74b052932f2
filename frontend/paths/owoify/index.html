@@ -54,6 +54,8 @@
                     .replace(/(?<!w)ent\b/g, 'went')
                     .replace(/bettew/g, 'kawaii')
                     .replace(/pwease/g, 'senpai')
+                    .replace(/Hewwwo/g, 'Konnichiwa')
+                    .replace(/hewwwo/g, 'konnichiwa')
                     .replace(/[.?!]+/g, (match) => {
                         const randomFace = faces[Math.floor(Math.random() * faces.length)]
                         return match.endsWith(' ') ? ` ${randomFace} ` : ` ${randomFace}`
