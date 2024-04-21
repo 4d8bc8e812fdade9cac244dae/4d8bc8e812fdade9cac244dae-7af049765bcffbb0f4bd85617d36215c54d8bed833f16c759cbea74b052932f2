@@ -62,6 +62,11 @@ const pathMap = [
         pathFile: readPath('./frontend/paths/owoify/index.html'),
         runAsJavascript: false
     },
+    {
+        pathName: '/.well-known/discord',
+        pathFile: readPath('./assets/discord'),
+        runAsJavascript: false
+    },
 ]
 
 const assets = [
