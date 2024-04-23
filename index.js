@@ -14,11 +14,15 @@ const config = {
 
 const ServerClass = require('./server')
 const server = new ServerClass(config.port)
-server.startHttp()
-server.startHttps(
-    fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/privkey.pem'),
-    fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullchain.pem')
-)
+try {
+    server.startHttp()
+} catch {}
+try {
+    server.startHttps(
+        fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/privkey.pem'),
+        fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullchain.pem')
+    )
+} catch {}
 
 const pathMap = [
     {
