@@ -10,29 +10,33 @@ module.exports = class HttpWebServer extends EventEmitter {
     }
 
     startHttp() {
-        this._httpserver = require('http').createServer()
-        this._httpserver.listen(this.port || 80)
-
-        this._httpserver.on('request', (req, res) => {
-            this.emit('request', req, res)
-        })
-
-        return this._httpserver
+        try {
+            this._httpserver = require('http').createServer()
+            this._httpserver.listen(this.port || 80)
+    
+            this._httpserver.on('request', (req, res) => {
+                this.emit('request', req, res)
+            })
+    
+            return this._httpserver
+        } catch {}
     }
 
     startHttps(key, certificate) {
-        this._httpsserver = require('https').createServer(
-            {
-                key: key,
-                cert: certificate
-            }
-        )
-        this._httpsserver.listen(this.port || 443)
-
-        this._httpsserver.on('request', (req, res) => {
-            this.emit('request', req, res)
-        })
-
-        return this._httpsserver
+        try {
+            this._httpsserver = require('https').createServer(
+                {
+                    key: key,
+                    cert: certificate
+                }
+            )
+            this._httpsserver.listen(this.port || 443)
+    
+            this._httpsserver.on('request', (req, res) => {
+                this.emit('request', req, res)
+            })
+    
+            return this._httpsserver
+        } catch {}
     }
 }

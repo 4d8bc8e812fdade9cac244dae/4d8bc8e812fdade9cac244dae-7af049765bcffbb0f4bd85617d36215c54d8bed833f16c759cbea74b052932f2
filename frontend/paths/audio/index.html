@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Player</title>
+    </head>
+    <body>
+        <button onclick="startPlaying()">Play Music</button>
+    </body>
+    <script>
+        function play(pitch, length, volume = 100) {
+            const audio = new window.AudioContext()
+            const oscillator = audio.createOscillator()
+            oscillator.type = 'sine'
+            oscillator.frequency.setValueAtTime(pitch, audio.currentTime)
+
+            const gain = audio.createGain()
+            gain.gain.value = volume / 100
+
+            oscillator.connect(gain)
+            gain.connect(audio.destination)
+
+            oscillator.start()
+
+            setTimeout(() => {
+                oscillator.stop()
+            }, length)
+        }
+
+        function startPlaying() {
+            play(1000, 500, 10)
+            setTimeout(() => {
+                play(1100, 500, 10)
+                setTimeout(() => {
+                    play(1250, 500, 10)
+                }, 500)
+            }, 500)
+        }
+    </script>
+</html>
