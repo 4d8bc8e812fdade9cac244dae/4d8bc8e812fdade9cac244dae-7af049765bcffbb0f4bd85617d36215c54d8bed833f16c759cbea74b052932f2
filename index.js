@@ -59,7 +59,13 @@ const domainMap = [
     {
         name: 'ifyouseethisyoulikemenkissing.xyz',
         custom: {
-            pathMap: [],
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./frontend/systemPaths/debug/randomtest2.html'),
+                    runAsJavascript: false,
+                }
+            ],
             assets: [],
             example: [],
             notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
@@ -69,7 +75,27 @@ const domainMap = [
                 notFound: true,
             }
         }
-    }
+    },
+    {
+        name: 'yfd.icu',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./frontend/systemPaths/debug/randomtest2.html'),
+                    runAsJavascript: false,
+                }
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
 ]
 
 const pathMap = [
