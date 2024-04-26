@@ -41,7 +41,7 @@ const domainMap = [
                     runAsJavascript: false,
                 },
                 {
-                    pathName: '0.png',
+                    pathName: '/0.png',
                     pathFile: readPath('./frontend/systemPaths/domains/doin-your.mom/index.html'),
                     runAsJavascript: false,
                 },
