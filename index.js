@@ -42,7 +42,7 @@ const domainMap = [
                 },
                 {
                     pathName: '/0.png',
-                    pathFile: readPath('./frontend/systemPaths/domains/doin-your.mom/index.html'),
+                    pathFile: readPath('./frontend/systemPaths/domains/doin-your.mom/0.png'),
                     runAsJavascript: false,
                 },
             ],
