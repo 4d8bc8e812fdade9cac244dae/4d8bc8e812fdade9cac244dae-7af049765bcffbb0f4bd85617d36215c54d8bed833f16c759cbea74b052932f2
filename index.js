@@ -57,6 +57,11 @@ const pathMap = [
         runAsJavascript: true
     },
     {
+        pathName: '/headers',
+        pathFile: readPath('./frontend/scripts/headers.js'),
+        runAsJavascript: true
+    },
+    {
         pathName: '/countries',
         pathFile: readPath('./frontend/paths/countries/index.html'),
         runAsJavascript: false
