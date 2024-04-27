@@ -77,15 +77,9 @@ const domainMap = [
         }
     },
     {
-        name: 'yfd.icu',
+        name: '2hw.icu',
         custom: {
-            pathMap: [
-                {
-                    pathName: '',
-                    pathFile: readPath('./frontend/systemPaths/debug/randomtest2.html'),
-                    runAsJavascript: false,
-                }
-            ],
+            pathMap: [],
             assets: [],
             example: [],
             notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
