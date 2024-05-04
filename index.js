@@ -90,6 +90,60 @@ const domainMap = [
             }
         }
     },
+    {
+        name: 'discord-refined.nekoisa.dev',
+        custom: {
+            pathMap: [],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
+    {
+        name: 'music.nekoisa.dev',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./assets/bomb.mid'),
+                    runAsJavascript: false,
+                }
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
+    {
+        name: 'files.nekoisa.dev',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./assets/bomb.zip'),
+                    runAsJavascript: false,
+                }
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
 ]
 
 const pathMap = [
