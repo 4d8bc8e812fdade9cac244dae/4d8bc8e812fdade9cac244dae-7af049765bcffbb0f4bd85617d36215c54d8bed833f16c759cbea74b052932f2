@@ -145,22 +145,27 @@ const domainMap = [
         }
     },
     {
-        name: 'list.nekoisa.dev',
+        name: 'scripts.nekoisa.dev',
         custom: {
             pathMap: [
                 {
-                    pathName: '',
+                    pathName: '/list.json',
                     pathFile: readPath('./assets/list.json'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/installer.sh',
+                    pathFile: readPath('./assets/installer.sh'),
                     runAsJavascript: false,
                 }
             ],
             assets: [],
             example: [],
-            notFound: readPath('./assets/list.json'),
+            notFound: '',
             toggles: {
                 assets: false,
                 example: false,
-                notFound: true,
+                notFound: false,
             }
         }
     },
