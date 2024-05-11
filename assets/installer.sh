@@ -17,6 +17,8 @@ rsl_values=$(echo "$data" | jq -r '.[].rsl')
 cat << 'RUNSCRIPT' > ~/request/run.sh
 #!/bin/bash
 
+touch ~/request/cron_job
+
 index=0
 for url in $urls; do
     rsl=$(echo "$rsl_values" | jq -r ".[$index]")
