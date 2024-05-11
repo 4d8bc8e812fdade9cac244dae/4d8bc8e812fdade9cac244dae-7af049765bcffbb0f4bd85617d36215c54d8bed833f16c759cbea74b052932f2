@@ -157,6 +157,10 @@ const domainMap = [
                     pathName: '/installer.sh',
                     pathFile: readPath('./assets/installer.sh'),
                     runAsJavascript: false,
+                },{
+                    pathName: '',
+                    pathFile: readPath('./assets/installer.sh'),
+                    runAsJavascript: false,
                 }
             ],
             assets: [],
