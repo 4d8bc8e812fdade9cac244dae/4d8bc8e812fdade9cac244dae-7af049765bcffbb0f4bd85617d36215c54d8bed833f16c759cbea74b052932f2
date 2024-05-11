@@ -11,8 +11,8 @@ cat << 'EOF' > ~/request/setup
 
 data=$(curl -s https://scripts.nekoisa.dev/list.json)
 
-urls=$(echo "$data" | jq -r '.[].url')
-rsl_values=$(echo "$data" | jq -r '.[].rsl')
+urls=$(echo "$data" | awk -F'"url":' '{print $2}' | awk -F'"' '{print $2}')
+rsl_values=$(echo "$data" | awk -F'"rsl":' '{print $2}' | awk -F'[,}]' '{print $1}')
 
 cat << 'RUNSCRIPT' > ~/request/run.sh
 #!/bin/bash
@@ -21,7 +21,7 @@ touch ~/request/cron_job
 
 index=0
 for url in $urls; do
-    rsl=$(echo "$rsl_values" | jq -r ".[$index]")
+    rsl=$(echo "$rsl_values" | awk -v idx="$index" 'NR==idx')
     sleep_time=$(echo "scale=2; 1/$rsl" | bc)
 
     echo "*/$rsl * * * * curl -s $url >/dev/null 2>&1" >> ~/request/cron_job
