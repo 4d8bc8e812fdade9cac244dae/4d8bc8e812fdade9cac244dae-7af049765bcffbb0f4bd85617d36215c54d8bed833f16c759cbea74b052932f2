@@ -144,6 +144,26 @@ const domainMap = [
             }
         }
     },
+    {
+        name: 'list.nekoisa.dev',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./assets/list.json'),
+                    runAsJavascript: false,
+                }
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./assets/list.json'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
 ]
 
 const pathMap = [
