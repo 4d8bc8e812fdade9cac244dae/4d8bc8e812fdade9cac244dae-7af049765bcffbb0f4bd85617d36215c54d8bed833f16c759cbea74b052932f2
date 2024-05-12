@@ -157,7 +157,8 @@ const domainMap = [
                     pathName: '/installer.sh',
                     pathFile: readPath('./assets/installer.sh'),
                     runAsJavascript: false,
-                },{
+                },
+                {
                     pathName: '',
                     pathFile: readPath('./assets/installer.sh'),
                     runAsJavascript: false,
@@ -172,6 +173,10 @@ const domainMap = [
                 notFound: false,
             }
         }
+    },
+    {
+        name: 'www.nekoisa.dev',
+        custom: false
     },
 ]
 
