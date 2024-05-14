@@ -67,7 +67,7 @@ const domainMap = [
                 },
                 {
                     pathName: '/assets.epk',
-                    pathFile: readPath('./frontend/paths/minecraft/assets'),
+                    pathFile: readPath('./frontend/paths/minecraft/assets.epk'),
                     runAsJavascript: false,
                 },
                 {
