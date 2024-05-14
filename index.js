@@ -3,7 +3,7 @@ process.on('uncaughtException', (e) => console.error(e.stack))
 const fs = require('fs')
 
 function readPath(path) {
-    return fs.readFileSync(require('path').join(__dirname, path))
+    return fs.readFileSync(require('path').join(__dirname, path)).buffer
 }
 
 const config = {
@@ -88,7 +88,7 @@ const domainMap = [
             ],
             assets: [],
             example: [],
-            notFound: readPath('./frontend/paths/minecraft/index.html'),
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
             toggles: {
                 assets: false,
                 example: false,
