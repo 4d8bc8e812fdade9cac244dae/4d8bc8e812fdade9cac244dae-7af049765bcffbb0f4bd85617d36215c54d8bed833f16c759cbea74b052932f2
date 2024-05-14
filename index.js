@@ -87,7 +87,7 @@ const domainMap = [
             toggles: {
                 assets: false,
                 example: false,
-                notFound: false,
+                notFound: true,
             }
         }
     },
