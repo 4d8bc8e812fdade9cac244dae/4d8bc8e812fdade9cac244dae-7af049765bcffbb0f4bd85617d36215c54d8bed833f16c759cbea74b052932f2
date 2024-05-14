@@ -75,6 +75,11 @@ const domainMap = [
                     pathFile: readPath('./frontend/paths/minecraft/classes.js'),
                     runAsJavascript: false,
                 },
+                {
+                    pathName: '/classes.js.map',
+                    pathFile: readPath('./frontend/paths/minecraft/classes.js.map'),
+                    runAsJavascript: false,
+                },
             ],
             assets: [],
             example: [],
