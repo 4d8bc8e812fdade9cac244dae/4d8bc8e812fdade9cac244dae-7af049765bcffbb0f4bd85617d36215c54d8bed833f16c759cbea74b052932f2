@@ -57,6 +57,36 @@ const domainMap = [
         }
     },
     {
+        name: 'minecraft.doin-your.mom',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./frontend/paths/minecraft/index.html'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/assets.epk',
+                    pathFile: readPath('./frontend/paths/minecraft/assets'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/classes.js',
+                    pathFile: readPath('./frontend/paths/minecraft/classes.js'),
+                    runAsJavascript: false,
+                },
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/paths/minecraft/index.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: false,
+            }
+        }
+    },
+    {
         name: 'ifyouseethisyoulikemenkissing.xyz',
         custom: {
             pathMap: [
@@ -177,6 +207,26 @@ const domainMap = [
     {
         name: 'www.nekoisa.dev',
         custom: false
+    },
+    {
+        name: 'proxy.nekoisa.dev',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./frontend/paths/proxy/index.js'),
+                    runAsJavascript: true,
+                },
+            ],
+            assets: [],
+            example: [],
+            notFound: '',
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: false,
+            }
+        }
     },
 ]
 
