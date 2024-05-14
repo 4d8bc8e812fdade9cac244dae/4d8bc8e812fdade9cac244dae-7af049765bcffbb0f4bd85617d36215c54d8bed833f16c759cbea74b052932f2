@@ -3,7 +3,7 @@ process.on('uncaughtException', (e) => console.error(e.stack))
 const fs = require('fs')
 
 function readPath(path) {
-    return fs.readFileSync(require('path').join(__dirname, path)).buffer
+    return fs.readFileSync(require('path').join(__dirname, path))
 }
 
 const config = {
