@@ -80,6 +80,11 @@ const domainMap = [
                     pathFile: readPath('./frontend/paths/minecraft/classes.js.map'),
                     runAsJavascript: false,
                 },
+                {
+                    pathName: '/favicon.png',
+                    pathFile: readPath('./frontend/paths/minecraft/favicon.png'),
+                    runAsJavascript: false,
+                },
             ],
             assets: [],
             example: [],
