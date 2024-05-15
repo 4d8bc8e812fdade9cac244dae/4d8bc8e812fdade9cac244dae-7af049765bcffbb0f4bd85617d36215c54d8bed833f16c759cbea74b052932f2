@@ -422,24 +422,44 @@ server.on('request', (req, res) => {
             }
         } else {
             if (domain.proxy) {
-                req.headers.host = domain.proxy
+                const proxyModule = require(domain.proxy.startsWith('https:') ? 'https' : 'http')
 
-                fetch(`${domain.proxy}/${path}`, {
-                    headers: req.headers,
-                    method: req.method,
-                    redirect: 'follow'
-                }).then(response => {
-                    response.headers.forEach((value, key) => {
-                        res.setHeader(key, value)
-                    })
-                    res.statusCode = response.status
-                    response.arrayBuffer().then(output => {
-                        res.write(Buffer.from(output))
-                        res.end()
-                    })
-                }).catch(error => {
-                    console.log(error)
+                const proxyUrl = new URL(`${domain.proxy}/${path}`)
+                req.headers.host = proxyUrl.host
+                
+                const proxyReq = proxyModule.request(
+                    {
+                        host: proxyUrl.host,
+                        port: proxyUrl.port || (proxyUrl.protocol === 'https:' ? 443 : 80),
+                        path: req.url,
+                        method: req.method,
+                        headers: req.headers,
+                        rejectUnauthorized: false
+                    }, proxyRes => {
+                        res.writeHead(proxyRes.statusCode, proxyRes.headers)
+                        let data = []
+
+                        proxyRes.on('data', (chunk) => {
+                            data.push(chunk)
+                        })
+
+                        proxyRes.once('end', () => {
+                            data.forEach(chunk => {
+                                res.write(chunk)
+                            })
+                            res.end()
+                        })
+
+                        proxyRes.on('error', () => {proxyRes.end()})
+                    }
+                )
+                
+                proxyReq.on('error', (e) => {
+                    res.writeHead(500)
+                    res.end(`Internal Server Error: ${e.message}`)
                 })
+                
+                proxyReq.end()
             } else if (domain.custom.toggles && domain.custom.toggles.assets && domain.custom.assets) {
                 if (path.startsWith(config.assetsPath)) {
                     const requestedFilePath = path.substring(config.assetsPath.length)
