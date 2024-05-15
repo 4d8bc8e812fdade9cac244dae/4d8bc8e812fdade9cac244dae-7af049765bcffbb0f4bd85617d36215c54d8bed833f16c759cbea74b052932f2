@@ -245,9 +245,9 @@ const domainMap = [
         }
     },
     {
-        name: 'code.nekoisa.dev',
+        name: 'alt.doin-your.mom',
         custom: true,
-        proxy: 'https://code.chipmunk.land'
+        proxy: 'https://nekoisa.dev'
     },
 ]
 
@@ -542,8 +542,3 @@ server.on('request', (req, res) => {
 })
 
 const webSocketList = []
-
-server.on('connection', socket => {
-    socket.end() // websocket support (yay!)
-    // I have it to be socket.end for now cause I'm not adding websocket things yet
-})
