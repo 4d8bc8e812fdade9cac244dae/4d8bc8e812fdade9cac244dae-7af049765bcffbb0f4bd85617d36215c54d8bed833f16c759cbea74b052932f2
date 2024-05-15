@@ -25,6 +25,12 @@ try {
         fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullchain.pem')
     )
 } catch {}
+try {
+    server.startWS()
+} catch {}
+try {
+    server.startWSS()
+} catch {}
 
 const domainMap = [
     {
@@ -238,6 +244,11 @@ const domainMap = [
             }
         }
     },
+    {
+        name: 'code.nekoisa.dev',
+        custom: true,
+        proxy: 'https://code.chipmunk.land'
+    },
 ]
 
 const pathMap = [
@@ -410,7 +421,22 @@ server.on('request', (req, res) => {
                 res.end()
             }
         } else {
-            if (domain.custom.toggles && domain.custom.toggles.assets && domain.custom.assets) {
+            if (domain.proxy) {
+                req.headers.host = domain.proxy
+
+                fetch(`${domain.proxy}/${path}`, {
+                    headers: req.headers,
+                    method: req.method
+                }).then(response => {
+                    res.statusCode = response.status
+                    response.arrayBuffer().then(output => {
+                        res.write(Buffer.from(output))
+                        res.end()
+                    })
+                }).catch(error => {
+                    console.log(error)
+                })
+            } else if (domain.custom.toggles && domain.custom.toggles.assets && domain.custom.assets) {
                 if (path.startsWith(config.assetsPath)) {
                     const requestedFilePath = path.substring(config.assetsPath.length)
             
@@ -429,9 +455,7 @@ server.on('request', (req, res) => {
             
                     return
                 }
-            }
-    
-            if (domain.custom.toggles && domain.custom.toggles.example && domain.custom.example) {
+            } else if (domain.custom.toggles && domain.custom.toggles.example && domain.custom.example) {
                 if (path.startsWith(config.examplePath)) {
                     const requestedFilePath = path.substring(config.examplePath.length)
             
@@ -450,9 +474,7 @@ server.on('request', (req, res) => {
             
                     return
                 }
-            }
-            
-            if (domain.custom.toggles && domain.custom.pathMap) {
+            } else if (domain.custom.toggles && domain.custom.pathMap) {
                 const foundPath = domain.custom.pathMap.find(pathData => pathData.pathName === path)
     
                 if (foundPath) {
@@ -493,4 +515,11 @@ server.on('request', (req, res) => {
         res.write(config.notFound)
         res.end()
     }
+})
+
+const webSocketList = []
+
+server.on('connection', socket => {
+    socket.end() // websocket support (yay!)
+    // I have it to be socket.end for now cause I'm not adding websocket things yet
 })

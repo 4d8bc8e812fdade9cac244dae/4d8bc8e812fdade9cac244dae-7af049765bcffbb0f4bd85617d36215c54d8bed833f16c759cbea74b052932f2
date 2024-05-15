@@ -8,7 +8,6 @@
     })
 
     req.once('end', () => {
-        return // not done :shrug:
         fs.readFile('proxy_keys', (err, data) => {
             if (err) {
                 res.statusCode = 500
