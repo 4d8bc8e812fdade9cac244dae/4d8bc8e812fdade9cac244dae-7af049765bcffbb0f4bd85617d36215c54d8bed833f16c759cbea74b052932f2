@@ -426,10 +426,14 @@ server.on('request', (req, res) => {
 
                 fetch(`${domain.proxy}/${path}`, {
                     headers: req.headers,
-                    method: req.method
+                    method: req.method,
+                    redirect: 'manual'
                 }).then(response => {
                     res.statusCode = response.status
                     response.arrayBuffer().then(output => {
+                        response.headers.forEach((value, key) => {
+                            res.setHeader(key, value)
+                        })
                         res.write(Buffer.from(output))
                         res.end()
                     })
