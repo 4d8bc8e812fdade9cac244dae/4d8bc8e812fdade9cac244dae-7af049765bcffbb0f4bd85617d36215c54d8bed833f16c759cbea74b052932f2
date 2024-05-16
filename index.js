@@ -249,6 +249,46 @@ const domainMap = [
         custom: true,
         proxy: 'https://nekoisa.dev'
     },
+    {
+        name: 'doxbin.live',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./frontend/paths/minecraft/index.html'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/assets.epk',
+                    pathFile: readPath('./frontend/paths/minecraft/assets.epk'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/classes.js',
+                    pathFile: readPath('./frontend/paths/minecraft/classes.js'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/classes.js.map',
+                    pathFile: readPath('./frontend/paths/minecraft/classes.js.map'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/favicon.png',
+                    pathFile: readPath('./frontend/paths/minecraft/favicon.png'),
+                    runAsJavascript: false,
+                },
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
 ]
 
 const pathMap = [
