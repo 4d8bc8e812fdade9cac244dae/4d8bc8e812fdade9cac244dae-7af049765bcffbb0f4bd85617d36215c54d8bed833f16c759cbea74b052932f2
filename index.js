@@ -289,6 +289,11 @@ const domainMap = [
             }
         }
     },
+    {
+        name: 'pihole.nekoisa.dev',
+        custom: true,
+        proxy: 'http://127.0.0.1:58163'
+    },
 ]
 
 const pathMap = [
