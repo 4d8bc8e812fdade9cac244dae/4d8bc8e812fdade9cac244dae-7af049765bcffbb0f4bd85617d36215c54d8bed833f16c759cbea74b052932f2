@@ -290,9 +290,24 @@ const domainMap = [
         }
     },
     {
-        name: 'pihole.nekoisa.dev',
-        custom: true,
-        proxy: 'http://localhost:58163'
+        name: 'md.nekoisa.dev',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./assets/md.mp4'),
+                    runAsJavascript: false,
+                },
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
     },
 ]
 
