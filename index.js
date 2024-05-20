@@ -309,6 +309,11 @@ const domainMap = [
             }
         }
     },
+    {
+        name: 'g2rbevpos7n5c5s5dod2upuvdvluohsiv6czpy45p3eif7lmbonl44ad.onion',
+        custom: true,
+        proxy: 'https://nekoisa.dev'
+    },
 ]
 
 const pathMap = [
