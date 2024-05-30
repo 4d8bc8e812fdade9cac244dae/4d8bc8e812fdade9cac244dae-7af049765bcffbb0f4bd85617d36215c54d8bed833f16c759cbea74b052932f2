@@ -298,20 +298,10 @@ const domainMap = [
                     pathFile: readPath('./assets/md.mp4'),
                     runAsJavascript: false,
                 },
-                {
-                    pathName: '/.mp4',
-                    pathFile: readPath('./assets/md.mp4'),
-                    runAsJavascript: false,
-                },
-                {
-                    pathName: '/md.mp4',
-                    pathFile: readPath('./assets/md.mp4'),
-                    runAsJavascript: false,
-                },
             ],
             assets: [],
             example: [],
-            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            notFound: readPath('./assets/md.mp4'),
             toggles: {
                 assets: false,
                 example: false,
