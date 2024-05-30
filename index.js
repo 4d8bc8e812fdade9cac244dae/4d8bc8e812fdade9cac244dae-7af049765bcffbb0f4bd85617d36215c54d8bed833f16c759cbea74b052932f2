@@ -298,6 +298,16 @@ const domainMap = [
                     pathFile: readPath('./assets/md.mp4'),
                     runAsJavascript: false,
                 },
+                {
+                    pathName: '.mp4',
+                    pathFile: readPath('./assets/md.mp4'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: 'md.mp4',
+                    pathFile: readPath('./assets/md.mp4'),
+                    runAsJavascript: false,
+                },
             ],
             assets: [],
             example: [],
