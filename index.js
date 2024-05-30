@@ -178,6 +178,11 @@ const domainMap = [
                     pathName: '',
                     pathFile: readPath('./assets/bomb.zip'),
                     runAsJavascript: false,
+                },
+                {
+                    pathName: '/trick.mp4',
+                    pathFile: readPath('./assets/bomb.zip'),
+                    runAsJavascript: false,
                 }
             ],
             assets: [],
@@ -295,6 +300,11 @@ const domainMap = [
             pathMap: [
                 {
                     pathName: '',
+                    pathFile: readPath('./assets/md.mp4'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/md.mp4',
                     pathFile: readPath('./assets/md.mp4'),
                     runAsJavascript: false,
                 },
