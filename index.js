@@ -178,11 +178,6 @@ const domainMap = [
                     pathName: '',
                     pathFile: readPath('./assets/bomb.zip'),
                     runAsJavascript: false,
-                },
-                {
-                    pathName: '/trick.mp4',
-                    pathFile: readPath('./assets/bomb.zip'),
-                    runAsJavascript: false,
                 }
             ],
             assets: [],
@@ -303,15 +298,10 @@ const domainMap = [
                     pathFile: readPath('./assets/md.mp4'),
                     runAsJavascript: false,
                 },
-                {
-                    pathName: '/md.mp4',
-                    pathFile: readPath('./assets/md.mp4'),
-                    runAsJavascript: false,
-                },
             ],
             assets: [],
             example: [],
-            notFound: readPath('./assets/md.mp4'),
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
             toggles: {
                 assets: false,
                 example: false,
