@@ -314,6 +314,11 @@ const domainMap = [
         custom: true,
         proxy: 'https://nekoisa.dev'
     },
+    {
+        name: 'code.nekoisa.dev',
+        custom: true,
+        proxy: 'http://0.0.0.0:3000'
+    },
 ]
 
 const pathMap = [
