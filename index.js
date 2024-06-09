@@ -317,7 +317,7 @@ const domainMap = [
     {
         name: 'code.nekoisa.dev',
         custom: true,
-        proxy: 'http://0.0.0.0:3000'
+        proxy: 'http://168.100.232.7:3000'
     },
 ]
 
