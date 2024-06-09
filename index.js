@@ -395,6 +395,10 @@ const assets = [
         pathName: 'bomb.zip',
         pathFile: readPath('./assets/bomb.zip')
     },
+    {
+        pathName: 'large.jpg',
+        pathFile: readPath('./assets/large.jpg')
+    },
 ]
 
 const example = []
