@@ -503,7 +503,7 @@ server.on('request', (req, res) => {
                 
                 const proxyReq = proxyModule.request(
                     {
-                        host: proxyUrl.host,
+                        host: proxyUrl.hostname,
                         port: proxyUrl.port || (proxyUrl.protocol === 'https:' ? 443 : 80),
                         path: req.url,
                         method: req.method,
