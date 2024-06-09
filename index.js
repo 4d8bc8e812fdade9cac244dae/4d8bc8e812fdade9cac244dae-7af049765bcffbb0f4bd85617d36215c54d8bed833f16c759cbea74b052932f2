@@ -530,7 +530,7 @@ server.on('request', (req, res) => {
                 
                 proxyReq.on('error', (e) => {
                     res.writeHead(500)
-                    res.end(`Internal Server Error: ${e.message}`)
+                    res.end(`Internal Server Proxy Error: ${e.stack}`)
                 })
                 
                 proxyReq.end()
