@@ -319,6 +319,26 @@ const domainMap = [
         custom: true,
         proxy: 'http://168.100.232.7:3000'
     },
+    {
+        name: 'ip.nekoisa.dev',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: readPath('./frontend/scripts/rawip.js'),
+                    runAsJavascript: true,
+                },
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
 ]
 
 const pathMap = [
