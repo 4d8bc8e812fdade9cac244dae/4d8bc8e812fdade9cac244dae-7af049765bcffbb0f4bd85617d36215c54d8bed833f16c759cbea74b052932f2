@@ -125,7 +125,13 @@ const domainMap = [
     {
         name: '2hw.icu',
         custom: {
-            pathMap: [],
+            pathMap: [
+                {
+                    pathName: '/bomb.lua',
+                    pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/bomb.lua'),
+                    runAsJavascript: false,
+                }
+            ],
             assets: [],
             example: [],
             notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
