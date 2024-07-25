@@ -21,8 +21,8 @@ try {
 } catch {}
 try {
     server.startHttps(
-        fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/privkey.pem'),
-        fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev/fullchain.pem')
+        fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev-0001/privkey.pem'),
+        fs.readFileSync('/etc/letsencrypt/live/nekoisa.dev-0001/fullchain.pem')
     )
 } catch {}
 try {
