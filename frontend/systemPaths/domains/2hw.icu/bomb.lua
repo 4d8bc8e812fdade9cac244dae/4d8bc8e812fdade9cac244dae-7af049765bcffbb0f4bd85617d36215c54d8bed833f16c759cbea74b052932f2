@@ -8,6 +8,7 @@ while true do
         while true do
             if ship.getVelocity().y > -10 then
                 redstone.setOutput('top', true)
+                exit()
             end
             sleep()
         end
