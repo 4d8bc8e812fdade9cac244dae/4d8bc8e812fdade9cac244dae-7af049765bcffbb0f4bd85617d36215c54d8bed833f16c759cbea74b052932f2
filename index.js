@@ -130,6 +130,11 @@ const domainMap = [
                     pathName: '/bomb.lua',
                     pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/bomb.lua'),
                     runAsJavascript: false,
+                },
+                {
+                    pathName: '/bomb_fast_arm.lua',
+                    pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/bomb_fast_arm.lua'),
+                    runAsJavascript: false,
                 }
             ],
             assets: [],
