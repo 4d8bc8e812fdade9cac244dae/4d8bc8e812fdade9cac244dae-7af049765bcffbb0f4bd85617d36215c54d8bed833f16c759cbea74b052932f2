@@ -135,6 +135,16 @@ const domainMap = [
                     pathName: '/bomb_fast_arm.lua',
                     pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/bomb_fast_arm.lua'),
                     runAsJavascript: false,
+                },
+                {
+                    pathName: '/invert_redstone.lua',
+                    pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/invert_redstone.lua'),
+                    runAsJavascript: false,
+                },
+                {
+                    pathName: '/pump.lua',
+                    pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/pump.lua'),
+                    runAsJavascript: false,
                 }
             ],
             assets: [],
