@@ -145,6 +145,11 @@ const domainMap = [
                     pathName: '/pump.lua',
                     pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/pump.lua'),
                     runAsJavascript: false,
+                },
+                {
+                    pathName: '/signal_1t_rotate.lua',
+                    pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/signal_1t_rotate.lua'),
+                    runAsJavascript: false,
                 }
             ],
             assets: [],
