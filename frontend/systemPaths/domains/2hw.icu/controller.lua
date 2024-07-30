@@ -1,5 +1,9 @@
 rednet.open('back')
 
 while true do
-    rednet.broadcast(os.pullEvent(), 'ptcu')
+    local event, key = os.pullEvent()
+
+    if (event == 'key') or (event == 'key_up') then
+        rednet.broadcast(event .. '_' .. key)
+    end
 end
