@@ -155,6 +155,11 @@ const domainMap = [
                     pathName: '/controller.lua',
                     pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/controller.lua'),
                     runAsJavascript: false,
+                },
+                {
+                    pathName: '/minecraft_leaks.avif',
+                    pathFile: readPath('./frontend/systemPaths/domains/2hw.icu/minecraft_leaks.avif'),
+                    runAsJavascript: false,
                 }
             ],
             assets: [],
