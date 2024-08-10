@@ -375,6 +375,31 @@ const domainMap = [
             }
         }
     },
+    {
+        name: '168.100.232.7',
+        custom: {
+            pathMap: [
+                {
+                    pathName: '',
+                    pathFile: Buffer.from('Hello, world!'),
+                    runAsJavascript: true,
+                },
+                {
+                    pathName: '/network-check',
+                    pathFile: Buffer.from('OK'),
+                    runAsJavascript: true,
+                },
+            ],
+            assets: [],
+            example: [],
+            notFound: readPath('./frontend/systemPaths/domains/global/nginx_notfound.html'),
+            toggles: {
+                assets: false,
+                example: false,
+                notFound: true,
+            }
+        }
+    },
 ]
 
 const pathMap = [
