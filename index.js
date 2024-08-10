@@ -382,12 +382,12 @@ const domainMap = [
                 {
                     pathName: '',
                     pathFile: Buffer.from('Hello, world!'),
-                    runAsJavascript: true,
+                    runAsJavascript: false,
                 },
                 {
                     pathName: '/network-check',
                     pathFile: Buffer.from('OK'),
-                    runAsJavascript: true,
+                    runAsJavascript: false,
                 },
             ],
             assets: [],
