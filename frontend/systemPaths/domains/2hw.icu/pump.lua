@@ -23,7 +23,7 @@ end
 local function transferFluids(a, b)
     for i, a_ in pairs(a) do
         for i, b_ in pairs(b) do
-            a_.pushFluid(peripheral.getName(b_))
+            b_.pullFluid(peripheral.getName(a_))
         end
     end
 end
