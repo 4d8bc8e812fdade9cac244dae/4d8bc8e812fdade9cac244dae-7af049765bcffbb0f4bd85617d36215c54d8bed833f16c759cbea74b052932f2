@@ -7,7 +7,7 @@ for i,v in pairs(sides) do
     local type = peripheral.getType(v)
     if string.find(type, 'dieselgenerators') then
         table.insert(engines, peripheral.wrap(v))
-    elseif (type == 'create:fluid_tank') or (type == 'create:creative_fluid_tank') then
+    elseif (type == 'create:fluid_tank') or (type == 'create:creative_fluid_tank') or (type == 'fluid_storage') then
         table.insert(fuel_tanks, peripheral.wrap(v))
     end
 end
